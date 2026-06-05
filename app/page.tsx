@@ -6,6 +6,19 @@ import { cvData } from "@/data/cvData";
 export default function Home() {
   const [showEmail, setShowEmail] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const categories = [
+    "Tümü",
+    ...Array.from(new Set(cvData.projects.map((project) => project.category))),
+  ];
+
+  const filteredProjects =
+    activeCategory === null
+      ? []
+      : activeCategory === "Tümü"
+      ? cvData.projects
+      : cvData.projects.filter((project) => project.category === activeCategory);
 
   const copyEmail = async () => {
     try {
@@ -25,7 +38,7 @@ export default function Home() {
           <img
             src={cvData.personal.photo}
             alt={`${cvData.personal.name} profile`}
-            className="w-28 h-28 rounded-full object-cover mx-auto md:mx-0 mb-4 md:mb-0 border border-white/10"
+            className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover mx-auto md:mx-0 mb-4 md:mb-0 border border-white/10 shadow-lg"
           />
 
           <div>
@@ -66,9 +79,9 @@ export default function Home() {
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-800/80 text-teal-300 transition shadow-sm hover:bg-slate-700 hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     title="Maili kopyala"
                   >
-                    <span className="relative inline-flex h-6 w-6 items-center justify-center">
-                      <span className="absolute left-0 top-0 h-3.5 w-3.5 rounded-md border border-teal-300/70 bg-slate-900/80"></span>
-                      <span className="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-md border border-teal-300/70 bg-slate-900/80"></span>
+                    <span className="relative inline-flex h-6 w-6">
+                      <span className="absolute left-0 top-0 h-4 w-4 rounded-md border border-teal-300/70 bg-slate-900/80"></span>
+                      <span className="absolute left-1 top-1 h-4 w-4 rounded-md border border-teal-300/70 bg-slate-900/80"></span>
                     </span>
                   </span>
                 </p>
@@ -112,34 +125,57 @@ export default function Home() {
         {/* 4. PROJELER */}
         <section className="border-t border-slate-800 pt-10">
           <h2 className="text-2xl font-bold text-slate-200 mb-6">Projeler</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {cvData.projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-slate-800/40 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-all flex flex-col justify-between"
+          <div className="flex flex-wrap gap-2 mb-6">
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                  activeCategory === category
+                    ? "bg-teal-500 text-slate-900"
+                    : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                }`}
               >
-                <div>
-                  <h3 className="text-lg font-semibold text-teal-400 mb-2">{project.title}</h3>
-                  <p className="text-slate-300 leading-relaxed mb-4">{project.description}</p>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="text-xs font-mono text-slate-500 bg-slate-900/50 p-2 rounded border border-slate-800/80">
-                    {project.tech}
-                  </div>
-                  {project.github ? (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-teal-500/20 bg-teal-500/10 px-4 py-2 text-sm font-medium text-teal-300 transition hover:bg-teal-500/20 hover:text-white"
-                    >
-                      GitHub Repo
-                    </a>
-                  ) : null}
-                </div>
-              </div>
+                {category}
+              </button>
             ))}
           </div>
+
+          {activeCategory === null ? (
+            <p className="text-slate-500">Bir kategori seçin, ardından projeler görünsün.</p>
+          ) : filteredProjects.length === 0 ? (
+            <p className="text-slate-500">Bu kategori için proje bulunamadı.</p>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-6">
+              {filteredProjects.map((project, index) => (
+                <div
+                  key={index}
+                  className="bg-slate-800/40 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <h3 className="text-lg font-semibold text-teal-400 mb-2">{project.title}</h3>
+                    <p className="text-slate-300 leading-relaxed mb-4">{project.description}</p>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <div className="text-xs font-mono text-slate-500 bg-slate-900/50 p-2 rounded border border-slate-800/80">
+                      {project.tech}
+                    </div>
+                    {project.github ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center rounded-full border border-teal-500/20 bg-teal-500/10 px-4 py-2 text-sm font-medium text-teal-300 transition hover:bg-teal-500/20 hover:text-white"
+                      >
+                        GitHub Repo
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* 5. YETENEKLER & EĞİTİM */}

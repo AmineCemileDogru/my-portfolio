@@ -57,6 +57,7 @@ export const cvData = {
     {
       title: "my-portfolio",
       tech: "Next.js, Tailwind CSS",
+      category: "Web",
       description:
         "Bu portföy web sitesini Next.js ve Tailwind CSS kullanarak oluşturdum.",
       github: "https://github.com/AmineCemileDogru/my-portfolio",
@@ -64,6 +65,7 @@ export const cvData = {
     {
       title: "Plant-Savior-Pro",
       tech: "Kotlin",
+      category: "Mobile",
       description:
         "Bitki bakımını kolaylaştırmak için geliştirilen Plant-Savior-Pro Android uygulaması.",
       github: "https://github.com/AmineCemileDogru/Plant-Savior-Pro",
@@ -71,60 +73,70 @@ export const cvData = {
     {
       title: "SustainES-Email-Management-System",
       tech: "Email Management",
+      category: "Backend",
       description: "Sustaine projesi kapsamında e-posta yönetimi ve bildirim altyapısı.",
       github: "https://github.com/AmineCemileDogru/SustainES-Email-Management-System",
     },
     {
       title: "SustainES-Auth-System",
       tech: "Authentication",
+      category: "Backend",
       description: "Sustaine projesi için kimlik doğrulama ve kullanıcı yönetimi sistemleri.",
       github: "https://github.com/AmineCemileDogru/SustainES-Auth-System",
     },
     {
       title: "cap-ppe",
       tech: "PPE Detection",
+      category: "AI / ML",
       description: "Kişisel koruyucu ekipman tespiti için makine öğrenmesi tabanlı bir proje.",
       github: "https://github.com/AmineCemileDogru/cap-ppe",
     },
     {
       title: "uti-bamine",
       tech: "Utility Tool",
+      category: "Tools",
       description: "Çeşitli yardımcı araçları içeren bir yazılım projesi.",
       github: "https://github.com/AmineCemileDogru/uti-bamine",
     },
     {
       title: "MSP430-Assembler",
       tech: "Assembly, MSP430",
+      category: "Tools",
       description: "MSP430 işlemcisi için assembly kodunu makine koduna çeviren bir assembler.",
       github: "https://github.com/AmineCemileDogru/MSP430-Assembler",
     },
     {
       title: "SehirTanitimiWeb",
       tech: "Web Development",
+      category: "Web",
       description: "Şehir tanıtımı amacıyla oluşturulmuş bir web uygulaması.",
       github: "https://github.com/AmineCemileDogru/SehirTanitimiWeb",
     },
     {
       title: "SehirTanitimiMobil",
       tech: "Mobile App",
+      category: "Mobile",
       description: "Şehir tanıtımı için mobil uygulama geliştirilmiştir.",
       github: "https://github.com/AmineCemileDogru/SehirTanitimiMobil",
     },
     {
       title: "img-fastapi-app",
       tech: "FastAPI, Docker",
+      category: "AI / ML",
       description: "FastAPI ve Docker kullanarak trafik işareti tanıma uygulaması.",
       github: "https://github.com/AmineCemileDogru/img-fastapi-app",
     },
     {
       title: "BlogSitesi",
       tech: "ASP.NET MVC",
+      category: "Web",
       description: "Dinamik içerik yönetimine sahip bir blog sitesi projesi.",
       github: "https://github.com/AmineCemileDogru/BlogSitesi",
     },
     {
       title: "Amine_Gebze_Web",
       tech: "Web Development",
+      category: "Web",
       description: "Gebze ile ilgili bilgiler sunan bir web sitesi projesi.",
       github: "https://github.com/AmineCemileDogru/Amine_Gebze_Web",
     },
