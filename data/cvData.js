@@ -4,7 +4,7 @@ export const cvData = {
     title: "Bilgisayar Mühendisi",
     location: "Kocaeli, Gebze",
     email: "aminecemiledogru@gmail.com",
-    linkedin: "https://www.linkedin.com/login",
+    linkedin: "https://www.linkedin.com/in/amine-cemile-doğru-04416a255/",
     photo: "/profile.jpg",
     born: 2004,
     graduated: 2026,
