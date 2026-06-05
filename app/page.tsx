@@ -36,15 +36,16 @@ export default function Home() {
       {/* 1. HERO / GİRİŞ BÖLÜMÜ */}
       <header className="max-w-5xl mx-auto px-6 pt-24 pb-16 text-center md:text-left md:flex md:items-center md:justify-between">
         <div className="md:flex md:items-center md:gap-6">
-          <Image
-            src={cvData.personal.photo}
-            alt={`${cvData.personal.name} profile`}
-            width={192}
-            height={192}
-            priority
-            quality={100}
-            className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto md:mx-0 mb-4 md:mb-0 border border-white/10"
-          />
+          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto md:mx-0 mb-4 md:mb-0 border border-white/10">
+            <Image
+              src={cvData.personal.photo}
+              alt={`${cvData.personal.name} profile`}
+              fill
+              priority
+              quality={100}
+              className="object-cover"
+            />
+          </div>
 
           <div>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
