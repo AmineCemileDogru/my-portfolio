@@ -22,39 +22,48 @@ export default function Home() {
       : cvData.projects.filter((project) => project.category === activeCategory);
 
   const renderCategoryIcon = (category: string | undefined) => {
+    // polished SVG icons per category (filled/outlined mix) — colors chosen to match theme
     switch (category) {
       case "Web":
         return (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10" stroke="#34D399" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M22 12a10 10 0 00-10-10" stroke="#34D399" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="#34D399" strokeWidth="1.2" fill="rgba(52,211,153,0.06)" />
+            <path d="M2 12h20M12 2c3.5 3.5 3.5 17 0 20M12 2C8.5 5.5 8.5 18 12 21" stroke="#34D399" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         );
       case "Mobile":
         return (
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="7" y="3" width="10" height="18" rx="2" stroke="#60A5FA" strokeWidth="1.5"/>
-            <circle cx="12" cy="17" r="0.5" fill="#60A5FA" />
+            <rect x="7" y="3" width="10" height="18" rx="2" fill="rgba(96,165,250,0.06)" stroke="#60A5FA" strokeWidth="1" />
+            <rect x="10.5" y="16.5" width="3" height="1" rx="0.5" fill="#60A5FA" />
           </svg>
         );
       case "AI / ML":
         return (
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2v20" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round"/>
-            <path d="M5 7h14" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round"/>
+            <rect x="3" y="3" width="18" height="18" rx="4" fill="rgba(245,158,11,0.06)" stroke="#F59E0B" strokeWidth="1"/>
+            <path d="M8 8h8M8 12h8M8 16h5" stroke="#F59E0B" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         );
       case "Backend":
         return (
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="6" width="18" height="5" rx="1" stroke="#A78BFA" strokeWidth="1.5"/>
-            <rect x="3" y="13" width="18" height="5" rx="1" stroke="#A78BFA" strokeWidth="1.5"/>
+            <rect x="4" y="5" width="16" height="6" rx="1.5" fill="rgba(167,139,250,0.06)" stroke="#A78BFA" strokeWidth="1"/>
+            <rect x="4" y="13" width="16" height="6" rx="1.5" fill="rgba(167,139,250,0.04)" stroke="#A78BFA" strokeWidth="1"/>
+          </svg>
+        );
+      case "Tools":
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 21l3-3" stroke="#94A3B8" strokeWidth="1.4" strokeLinecap="round"/>
+            <path d="M14.5 6.5l3 3" stroke="#94A3B8" strokeWidth="1.4" strokeLinecap="round"/>
+            <path d="M7 17l10-10" stroke="#94A3B8" strokeWidth="1.4" strokeLinecap="round"/>
           </svg>
         );
       default:
         return (
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="9" stroke="#94A3B8" strokeWidth="1.2" />
+            <circle cx="12" cy="12" r="9" stroke="#94A3B8" strokeWidth="1.2" fill="rgba(148,163,184,0.04)" />
           </svg>
         );
     }
