@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { cvData } from "@/data/cvData";
 
 export default function Home() {
+  const [showEmail, setShowEmail] = useState(false);
+
   return (
     <main className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-teal-500 selection:text-slate-900">
       {/* 1. HERO / GİRİŞ BÖLÜMÜ */}
@@ -23,12 +26,13 @@ export default function Home() {
 
             {/* İletişim Butonları */}
             <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
-              <a
-                href={`mailto:${cvData.personal.email}?subject=Portföy%20üzerinden%20iletişim`}
+              <button
+                type="button"
+                onClick={() => setShowEmail(true)}
                 className="bg-teal-500 hover:bg-teal-400 text-slate-900 font-semibold px-5 py-2.5 rounded-lg transition-all"
               >
                 Bana Ulaşın
-              </a>
+              </button>
               <a
                 href={cvData.personal.linkedin}
                 target="_blank"
@@ -38,9 +42,11 @@ export default function Home() {
                 LinkedIn Profile
               </a>
             </div>
-            <p className="text-sm text-slate-400 mt-3">
-              E-posta: <a href={`mailto:${cvData.personal.email}`} className="text-teal-300 hover:text-teal-200">{cvData.personal.email}</a>
-            </p>
+            {showEmail && (
+              <p className="text-sm text-slate-400 mt-4">
+                E-posta: <a href={`mailto:${cvData.personal.email}?subject=Portföy%20üzerinden%20iletişim`} className="text-teal-300 hover:text-teal-200">{cvData.personal.email}</a>
+              </p>
+            )}
           </div>
         </div>
       </header>
