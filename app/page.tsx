@@ -149,39 +149,39 @@ export default function Home() {
             ))}
           </div>
 
-          {activeCategory === null ? (
-            <p className="text-slate-500">Bir kategori seçin, ardından projeler görünsün.</p>
-          ) : filteredProjects.length === 0 ? (
-            <p className="text-slate-500">Bu kategori için proje bulunamadı.</p>
-          ) : (
-            <div className="grid md:grid-cols-2 gap-6">
-              {filteredProjects.map((project, index) => (
-                <div
-                  key={index}
-                  className="bg-slate-800/40 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="text-lg font-semibold text-teal-400 mb-2">{project.title}</h3>
-                    <p className="text-slate-300 leading-relaxed mb-4">{project.description}</p>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <div className="text-xs font-mono text-slate-500 bg-slate-900/50 p-2 rounded border border-slate-800/80">
-                      {project.tech}
+          {activeCategory !== null && (
+            filteredProjects.length === 0 ? (
+              <p className="text-slate-500">Bu kategori için proje bulunamadı.</p>
+            ) : (
+              <div className="grid md:grid-cols-2 gap-6">
+                {filteredProjects.map((project, index) => (
+                  <div
+                    key={index}
+                    className="bg-slate-800/40 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-all flex flex-col justify-between"
+                  >
+                    <div>
+                      <h3 className="text-lg font-semibold text-teal-400 mb-2">{project.title}</h3>
+                      <p className="text-slate-300 leading-relaxed mb-4">{project.description}</p>
                     </div>
-                    {project.github ? (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center rounded-full border border-teal-500/20 bg-teal-500/10 px-4 py-2 text-sm font-medium text-teal-300 transition hover:bg-teal-500/20 hover:text-white"
-                      >
-                        GitHub Repo
-                      </a>
-                    ) : null}
+                    <div className="flex flex-col gap-3">
+                      <div className="text-xs font-mono text-slate-500 bg-slate-900/50 p-2 rounded border border-slate-800/80">
+                        {project.tech}
+                      </div>
+                      {project.github ? (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center rounded-full border border-teal-500/20 bg-teal-500/10 px-4 py-2 text-sm font-medium text-teal-300 transition hover:bg-teal-500/20 hover:text-white"
+                        >
+                          GitHub Repo
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )
           )}
         </section>
 
