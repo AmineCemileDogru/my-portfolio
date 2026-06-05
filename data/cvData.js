@@ -5,8 +5,11 @@ export const cvData = {
     location: "Kocaeli, Gebze",
     email: "aminecemiledogru@gmail.com",
     linkedin: "https://www.linkedin.com/in/aminecemiledogru",
+    photo: "https://avatars.githubusercontent.com/u/115898497?v=4",
+    born: 2004,
+    graduated: 2026,
     about:
-      "Sakarya Uygulamalı Bilimler Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Web geliştirme (React, Next.js, .NET), yapay zeka / bilgisayarla görü (OpenCV, YOLO) ve veri tabanı teknolojileri üzerine projeler geliştiriyorum.",
+      "Sakarya Uygulamalı Bilimler Üniversitesi Bilgisayar Mühendisliği bölümünden 2026 yılında mezun oldum. Kocaeli, Gebze'de yaşıyorum. Web geliştirme (React, Next.js, .NET), yapay zeka / bilgisayarla görü (OpenCV, YOLO) ve veri tabanı teknolojileri üzerine projeler geliştiriyorum.",
   },
   education: [
     {
@@ -52,16 +55,78 @@ export const cvData = {
   ],
   projects: [
     {
-      title: "Şehir Tanıtım Mobil Uygulaması & Web Sitesi",
-      tech: "Firebase, Android Studio, ASP.NET MVC, MySQL",
+      title: "my-portfolio",
+      tech: "Next.js, Tailwind CSS",
       description:
-        "Firebase ve Android Studio kullanarak şehir tanıtımı için mobil uygulama geliştirdim; ayrıca aynı proje için ASP.NET MVC ve MySQL kullanarak web sitesini oluşturdum.",
+        "Bu portföy web sitesini Next.js ve Tailwind CSS kullanarak oluşturdum.",
+      github: "https://github.com/AmineCemileDogru/my-portfolio",
     },
     {
-      title: "Blog Sitesi",
-      tech: "ASP.NET MVC",
+      title: "Plant-Savior-Pro",
+      tech: "Kotlin",
       description:
-        "ASP.NET MVC mimarisi kullanılarak geliştirilmiş, dinamik içerik yönetimli blog sitesi.",
+        "Bitki bakımını kolaylaştırmak için geliştirilen Plant-Savior-Pro Android uygulaması.",
+      github: "https://github.com/AmineCemileDogru/Plant-Savior-Pro",
+    },
+    {
+      title: "SustainES-Email-Management-System",
+      tech: "Email Management",
+      description: "Sustaine projesi kapsamında e-posta yönetimi ve bildirim altyapısı.",
+      github: "https://github.com/AmineCemileDogru/SustainES-Email-Management-System",
+    },
+    {
+      title: "SustainES-Auth-System",
+      tech: "Authentication",
+      description: "Sustaine projesi için kimlik doğrulama ve kullanıcı yönetimi sistemleri.",
+      github: "https://github.com/AmineCemileDogru/SustainES-Auth-System",
+    },
+    {
+      title: "cap-ppe",
+      tech: "PPE Detection",
+      description: "Kişisel koruyucu ekipman tespiti için makine öğrenmesi tabanlı bir proje.",
+      github: "https://github.com/AmineCemileDogru/cap-ppe",
+    },
+    {
+      title: "uti-bamine",
+      tech: "Utility Tool",
+      description: "Çeşitli yardımcı araçları içeren bir yazılım projesi.",
+      github: "https://github.com/AmineCemileDogru/uti-bamine",
+    },
+    {
+      title: "MSP430-Assembler",
+      tech: "Assembly, MSP430",
+      description: "MSP430 işlemcisi için assembly kodunu makine koduna çeviren bir assembler.",
+      github: "https://github.com/AmineCemileDogru/MSP430-Assembler",
+    },
+    {
+      title: "SehirTanitimiWeb",
+      tech: "Web Development",
+      description: "Şehir tanıtımı amacıyla oluşturulmuş bir web uygulaması.",
+      github: "https://github.com/AmineCemileDogru/SehirTanitimiWeb",
+    },
+    {
+      title: "SehirTanitimiMobil",
+      tech: "Mobile App",
+      description: "Şehir tanıtımı için mobil uygulama geliştirilmiştir.",
+      github: "https://github.com/AmineCemileDogru/SehirTanitimiMobil",
+    },
+    {
+      title: "img-fastapi-app",
+      tech: "FastAPI, Docker",
+      description: "FastAPI ve Docker kullanarak trafik işareti tanıma uygulaması.",
+      github: "https://github.com/AmineCemileDogru/img-fastapi-app",
+    },
+    {
+      title: "BlogSitesi",
+      tech: "ASP.NET MVC",
+      description: "Dinamik içerik yönetimine sahip bir blog sitesi projesi.",
+      github: "https://github.com/AmineCemileDogru/BlogSitesi",
+    },
+    {
+      title: "Amine_Gebze_Web",
+      tech: "Web Development",
+      description: "Gebze ile ilgili bilgiler sunan bir web sitesi projesi.",
+      github: "https://github.com/AmineCemileDogru/Amine_Gebze_Web",
     },
   ],
   skills: [

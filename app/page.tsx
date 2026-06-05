@@ -1,3 +1,5 @@
+"use client";
+
 import { cvData } from "@/data/cvData";
 
 export default function Home() {
@@ -5,29 +7,37 @@ export default function Home() {
     <main className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-teal-500 selection:text-slate-900">
       {/* 1. HERO / GİRİŞ BÖLÜMÜ */}
       <header className="max-w-5xl mx-auto px-6 pt-24 pb-16 text-center md:text-left md:flex md:items-center md:justify-between">
-        <div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
-            {cvData.personal.name}
-          </h1>
-          <p className="text-xl md:text-2xl font-medium text-slate-400 mt-3">{cvData.personal.title}</p>
-          <p className="text-sm text-slate-500 mt-2">📍 {cvData.personal.location}</p>
+        <div className="md:flex md:items-center md:gap-6">
+          <img
+            src={cvData.personal.photo}
+            alt={`${cvData.personal.name} profile`}
+            className="w-28 h-28 rounded-full object-cover mx-auto md:mx-0 mb-4 md:mb-0 border border-white/10"
+          />
 
-          {/* İletişim Butonları */}
-          <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
-            <a
-              href={`mailto:${cvData.personal.email}`}
-              className="bg-teal-500 hover:bg-teal-400 text-slate-900 font-semibold px-5 py-2.5 rounded-lg transition-all"
-            >
-              Bana Ulaşın
-            </a>
-            <a
-              href={cvData.personal.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-slate-700 hover:border-slate-500 text-slate-300 px-5 py-2.5 rounded-lg transition-all"
-            >
-              LinkedIn Profile
-            </a>
+          <div>
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+              {cvData.personal.name}
+            </h1>
+            <p className="text-xl md:text-2xl font-medium text-slate-400 mt-3">{cvData.personal.title}</p>
+            <p className="text-sm text-slate-500 mt-2">📍 {cvData.personal.location} • Doğum: {cvData.personal.born} • Mezuniyet: {cvData.personal.graduated}</p>
+
+            {/* İletişim Butonları */}
+            <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
+              <a
+                href={`mailto:${cvData.personal.email}`}
+                className="bg-teal-500 hover:bg-teal-400 text-slate-900 font-semibold px-5 py-2.5 rounded-lg transition-all"
+              >
+                Bana Ulaşın
+              </a>
+              <a
+                href={cvData.personal.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-slate-700 hover:border-slate-500 text-slate-300 px-5 py-2.5 rounded-lg transition-all"
+              >
+                LinkedIn Profile
+              </a>
+            </div>
           </div>
         </div>
       </header>
@@ -62,7 +72,7 @@ export default function Home() {
 
         {/* 4. PROJELER */}
         <section className="border-t border-slate-800 pt-10">
-          <h2 className="text-2xl font-bold text-slate-200 mb-6">Öne Çıkan Projeler</h2>
+          <h2 className="text-2xl font-bold text-slate-200 mb-6">Projeler</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {cvData.projects.map((project, index) => (
               <div
@@ -71,10 +81,22 @@ export default function Home() {
               >
                 <div>
                   <h3 className="text-lg font-semibold text-teal-400 mb-2">{project.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-4">{project.description}</p>
+                  <p className="text-slate-300 leading-relaxed mb-4">{project.description}</p>
                 </div>
-                <div className="text-xs font-mono text-slate-500 bg-slate-900/50 p-2 rounded border border-slate-800/80">
-                  {project.tech}
+                <div className="flex flex-col gap-3">
+                  <div className="text-xs font-mono text-slate-500 bg-slate-900/50 p-2 rounded border border-slate-800/80">
+                    {project.tech}
+                  </div>
+                  {project.github ? (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full border border-teal-500/20 bg-teal-500/10 px-4 py-2 text-sm font-medium text-teal-300 transition hover:bg-teal-500/20 hover:text-white"
+                    >
+                      GitHub Repo
+                    </a>
+                  ) : null}
                 </div>
               </div>
             ))}
