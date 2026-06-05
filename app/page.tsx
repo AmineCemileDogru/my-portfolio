@@ -47,13 +47,12 @@ export default function Home() {
                 <p className="text-sm text-slate-400">
                   E-posta: <a href={`mailto:${cvData.personal.email}?subject=Portföy%20üzerinden%20iletişim`} className="text-teal-300 hover:text-teal-200">{cvData.personal.email}</a>
                 </p>
-                <button
-                  type="button"
-                  onClick={() => window.location.href = `mailto:${cvData.personal.email}?subject=Portföy%20üzerinden%20iletişim`}
+                <a
+                  href={`mailto:${cvData.personal.email}?subject=Portföy%20üzerinden%20iletişim`}
                   className="inline-flex items-center justify-center rounded-full bg-teal-500 hover:bg-teal-400 text-slate-900 font-semibold px-5 py-2.5 transition-all"
                 >
-                  Mail Gönder / İletişime Geç
-                </button>
+                  Mail Gönder
+                </a>
               </div>
             )}
           </div>
