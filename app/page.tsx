@@ -63,7 +63,7 @@ export default function Home() {
                   <span
                     role="button"
                     onClick={copyEmail}
-                    className="text-2xl cursor-pointer text-teal-300 hover:text-teal-200"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-800/80 text-xl text-teal-300 transition hover:bg-slate-700 hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     title="Maili kopyala"
                   >
                     ⧉
