@@ -5,6 +5,17 @@ import { cvData } from "@/data/cvData";
 
 export default function Home() {
   const [showEmail, setShowEmail] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(cvData.personal.email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch (error) {
+      console.error("Clipboard write failed", error);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-teal-500 selection:text-slate-900">
@@ -47,12 +58,24 @@ export default function Home() {
                 <p className="text-sm text-slate-400">
                   E-posta: <a href={`mailto:${cvData.personal.email}?subject=Portföy%20üzerinden%20iletişim`} className="text-teal-300 hover:text-teal-200">{cvData.personal.email}</a>
                 </p>
-                <a
-                  href={`mailto:${cvData.personal.email}?subject=Portföy%20üzerinden%20iletişim`}
-                  className="inline-flex items-center justify-center rounded-full bg-teal-500 hover:bg-teal-400 text-slate-900 font-semibold px-5 py-2.5 transition-all"
-                >
-                  Mail Gönder
-                </a>
+                <div className="flex flex-col sm:flex-row items-center gap-3">
+                  <a
+                    href={`mailto:${cvData.personal.email}?subject=Portföy%20üzerinden%20iletişim`}
+                    className="inline-flex items-center justify-center rounded-full bg-teal-500 hover:bg-teal-400 text-slate-900 font-semibold px-5 py-2.5 transition-all"
+                  >
+                    Mail Gönder
+                  </a>
+                  <button
+                    type="button"
+                    onClick={copyEmail}
+                    className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-5 py-2.5 transition-all"
+                  >
+                    Maili Kopyala
+                  </button>
+                </div>
+                {emailCopied && (
+                  <p className="text-xs text-teal-300 mt-2">E-posta adresi kopyalandı!</p>
+                )}
               </div>
             )}
           </div>
