@@ -24,7 +24,7 @@ export default function Home() {
             {/* İletişim Butonları */}
             <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
               <a
-                href={`mailto:${cvData.personal.email}`}
+                href={`mailto:${cvData.personal.email}?subject=Portföy%20üzerinden%20iletişim`}
                 className="bg-teal-500 hover:bg-teal-400 text-slate-900 font-semibold px-5 py-2.5 rounded-lg transition-all"
               >
                 Bana Ulaşın
@@ -38,6 +38,9 @@ export default function Home() {
                 LinkedIn Profile
               </a>
             </div>
+            <p className="text-sm text-slate-400 mt-3">
+              E-posta: <a href={`mailto:${cvData.personal.email}`} className="text-teal-300 hover:text-teal-200">{cvData.personal.email}</a>
+            </p>
           </div>
         </div>
       </header>
