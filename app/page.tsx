@@ -21,6 +21,45 @@ export default function Home() {
       ? cvData.projects
       : cvData.projects.filter((project) => project.category === activeCategory);
 
+  const renderCategoryIcon = (category: string | undefined) => {
+    switch (category) {
+      case "Web":
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10" stroke="#34D399" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M22 12a10 10 0 00-10-10" stroke="#34D399" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        );
+      case "Mobile":
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7" y="3" width="10" height="18" rx="2" stroke="#60A5FA" strokeWidth="1.5"/>
+            <circle cx="12" cy="17" r="0.5" fill="#60A5FA" />
+          </svg>
+        );
+      case "AI / ML":
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2v20" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M5 7h14" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        );
+      case "Backend":
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="6" width="18" height="5" rx="1" stroke="#A78BFA" strokeWidth="1.5"/>
+            <rect x="3" y="13" width="18" height="5" rx="1" stroke="#A78BFA" strokeWidth="1.5"/>
+          </svg>
+        );
+      default:
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="#94A3B8" strokeWidth="1.2" />
+          </svg>
+        );
+    }
+  };
+
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(cvData.personal.email);
@@ -153,17 +192,21 @@ export default function Home() {
             filteredProjects.length === 0 ? (
               <p className="text-slate-500">Bu kategori için proje bulunamadı.</p>
             ) : (
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProjects.map((project, index) => (
                   <div
                     key={index}
-                    className="bg-slate-800/40 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-all flex flex-col justify-between"
+                    className="relative bg-slate-800/40 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-all flex flex-col justify-between overflow-hidden"
                   >
+                    {/* Category icon */}
+                    <div className="absolute top-3 right-3">{renderCategoryIcon(project.category)}</div>
+
                     <div>
                       <h3 className="text-lg font-semibold text-teal-400 mb-2">{project.title}</h3>
-                      <p className="text-slate-300 leading-relaxed mb-4">{project.description}</p>
+                      <p className="text-slate-300 leading-relaxed mb-4 min-h-[56px]">{project.description}</p>
                     </div>
-                    <div className="flex flex-col gap-3">
+
+                    <div className="flex items-center justify-between gap-3 mt-4">
                       <div className="text-xs font-mono text-slate-500 bg-slate-900/50 p-2 rounded border border-slate-800/80">
                         {project.tech}
                       </div>
@@ -172,9 +215,13 @@ export default function Home() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center rounded-full border border-teal-500/20 bg-teal-500/10 px-4 py-2 text-sm font-medium text-teal-300 transition hover:bg-teal-500/20 hover:text-white"
+                          className="inline-flex items-center gap-2 rounded-md bg-teal-500/10 border border-teal-500/20 px-3 py-2 text-sm font-medium text-teal-300 transition hover:bg-teal-500 hover:text-white"
                         >
-                          GitHub Repo
+                          GitHub'da İncele
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M13 5l6 7-6 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
                         </a>
                       ) : null}
                     </div>
