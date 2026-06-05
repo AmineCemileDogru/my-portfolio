@@ -40,7 +40,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setShowEmail(true)}
-                className="bg-teal-500 hover:bg-teal-400 text-slate-900 font-semibold px-5 py-2.5 rounded-lg transition-all"
+                className="bg-teal-500 hover:bg-teal-400 text-slate-900 font-semibold px-5 py-2.5 rounded-full transition-all"
               >
                 Bana Ulaşın
               </button>
@@ -48,7 +48,7 @@ export default function Home() {
                 href={cvData.personal.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-slate-700 hover:border-slate-500 text-slate-300 px-5 py-2.5 rounded-lg transition-all"
+                className="border border-slate-700 hover:border-slate-500 text-slate-300 px-5 py-2.5 rounded-full transition-all"
               >
                 LinkedIn Profile
               </a>
@@ -148,7 +148,7 @@ export default function Home() {
               {cvData.skills.map((skill, index) => (
                 <span
                   key={index}
-                  className="bg-teal-500/10 text-teal-400 border border-teal-500/20 px-3 py-1 rounded-md text-sm font-medium"
+                  className="bg-teal-500/10 text-teal-400 border border-teal-500/20 px-3 py-1 rounded-full text-sm font-medium"
                 >
                   {skill}
                 </span>
