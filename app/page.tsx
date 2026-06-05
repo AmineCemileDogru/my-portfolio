@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { cvData } from "@/data/cvData";
 
@@ -35,10 +36,14 @@ export default function Home() {
       {/* 1. HERO / GİRİŞ BÖLÜMÜ */}
       <header className="max-w-5xl mx-auto px-6 pt-24 pb-16 text-center md:text-left md:flex md:items-center md:justify-between">
         <div className="md:flex md:items-center md:gap-6">
-          <img
+          <Image
             src={cvData.personal.photo}
             alt={`${cvData.personal.name} profile`}
-            className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover mx-auto md:mx-0 mb-4 md:mb-0 border border-white/10 shadow-lg"
+            width={192}
+            height={192}
+            priority
+            quality={100}
+            className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto md:mx-0 mb-4 md:mb-0 border border-white/10"
           />
 
           <div>
