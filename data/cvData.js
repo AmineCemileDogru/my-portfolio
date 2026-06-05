@@ -5,7 +5,7 @@ export const cvData = {
     location: "Kocaeli, Gebze",
     email: "aminecemiledogru@gmail.com",
     linkedin: "https://www.linkedin.com/in/aminecemiledogru",
-    photo: "https://avatars.githubusercontent.com/u/115898497?v=4",
+    photo: "https://raw.githubusercontent.com/AmineCemileDogru/my-portfolio/master/public/profile.jpg",
     born: 2004,
     graduated: 2026,
     about:
